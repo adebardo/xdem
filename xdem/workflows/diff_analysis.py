@@ -183,7 +183,7 @@ class DiffAnalysis(Workflows):
         Compute altitudes difference histogram.
         """
         logging.info("Compute histogram")
-        plt.figure(figsize=(20, 20))
+        plt.figure(figsize=(20, 20), constrained_layout=True)
         bins = np.linspace(self.stats_before["min"], self.stats_before["max"], 300)
         plt.hist(self.diff_before.data.flatten(), bins=bins, color="g", alpha=0.6, label="Before_coregistration")
         plt.hist(self.diff_after.data.flatten().data, bins=bins, color="b", alpha=0.6, label="After_coregistration")
@@ -206,7 +206,6 @@ class DiffAnalysis(Workflows):
         plt.ylabel("Count (px)")
         plt.legend()
         plt.grid(False)
-        plt.tight_layout()
         plt.savefig(self.outputs_folder / "png" / "elev_diff_histo.png")
         plt.close()
 
