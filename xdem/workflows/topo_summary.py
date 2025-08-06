@@ -115,7 +115,7 @@ class TopoSummary(Workflows):
         ncols = 2
         nrows = math.ceil(n / ncols)
 
-        plt.figure(figsize=(10, 8))
+        plt.figure(figsize=(15, 15))
 
         plt_extent = [self.dem.bounds.left, self.dem.bounds.right, self.dem.bounds.bottom, self.dem.bounds.top]
 
