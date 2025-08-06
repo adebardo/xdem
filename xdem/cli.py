@@ -112,7 +112,7 @@ def main() -> None:
         logger.info("Generate report")
         HTML(workflow.outputs_folder / "report.html").write_pdf(workflow.outputs_folder / "report.pdf")
 
-    logger.info("End of execution")
+    logger.info("End of execution :)")
 
 
 if __name__ == "__main__":
