@@ -115,8 +115,7 @@ class TopoSummary(Workflows):
         ncols = 2
         nrows = math.ceil(n / ncols)
 
-        plt.figure(figsize=(20, 20), constrained_layout=True)
-        plt.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=None)
+        fig = plt.figure(figsize=(20, 20), constrained_layout=True)
 
         plt_extent = [self.dem.bounds.left, self.dem.bounds.right, self.dem.bounds.bottom, self.dem.bounds.top]
 
@@ -139,18 +138,18 @@ class TopoSummary(Workflows):
         }
 
         for i, attr in enumerate(self.list_attributes):
-            plt.subplot(nrows, ncols, i + 1)
+            ax = fig.add_subplot(nrows, ncols, i + 1)
 
             params = attribute_params.get(attr, {})
             cmap = params.get("cmap", "viridis")
             label = params.get("label", f"Attribute {i + 1}")
             vmin, vmax = params.get("vlim", (None, None))
 
-            plt.imshow(attributes[i].squeeze(), cmap=cmap, extent=plt_extent, vmin=vmin, vmax=vmax)
-            cbar = plt.colorbar()
+            im = ax.imshow(attributes[i].squeeze(), cmap=cmap, extent=plt_extent, vmin=vmin, vmax=vmax)
+            cbar = fig.colorbar(im, ax=ax)
             cbar.set_label(label)
-            plt.xticks([])
-            plt.yticks([])
+            ax.set_xticks([])
+            ax.set_yticks([])
 
         plt.savefig(self.outputs_folder / "png" / "terrain_attributes.png")
         plt.close()
