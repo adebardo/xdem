@@ -116,7 +116,7 @@ class TopoSummary(Workflows):
         nrows = math.ceil(n / ncols)
 
         plt.figure(figsize=(20, 20), constrained_layout=True)
-        plt.subplots_adjust(left=0.1, right=0.9, top=0.9, bottom=0.1, wspace=0.4, hspace=0.4)
+        plt.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=None)
 
         plt_extent = [self.dem.bounds.left, self.dem.bounds.right, self.dem.bounds.bottom, self.dem.bounds.top]
 

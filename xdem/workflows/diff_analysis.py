@@ -184,6 +184,7 @@ class DiffAnalysis(Workflows):
         """
         logging.info("Compute histogram")
         plt.figure(figsize=(20, 20), constrained_layout=True)
+        plt.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=None)
         bins = np.linspace(self.stats_before["min"], self.stats_before["max"], 300)
         plt.hist(self.diff_before.data.flatten(), bins=bins, color="g", alpha=0.6, label="Before_coregistration")
         plt.hist(self.diff_after.data.flatten().data, bins=bins, color="b", alpha=0.6, label="After_coregistration")
