@@ -39,7 +39,7 @@ jobs:
 
     environment:
       name: testpypi
-      url: https://test.pypi.org/adebardo/fork-xdem
+      url: https://test.pypi.org/p/fork-xdem
 
     permissions:
       id-token: write  # IMPORTANT: mandatory for trusted publishing
@@ -54,3 +54,4 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           repository-url: https://test.pypi.org/legacy/
+          verbose: true
