@@ -39,7 +39,7 @@ jobs:
 
     environment:
       name: testpypi
-      url: https://test.pypi.org/p/fork-xdem
+      url: https://test.pypi.org/p/xdem
 
     permissions:
       id-token: write  # IMPORTANT: mandatory for trusted publishing
